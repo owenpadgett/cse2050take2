@@ -14,38 +14,59 @@
 
 def read_weather_data(file_path: str):
     """
-    TODO: Reads weather data from a file.
+    Reads weather data from a file as List[Tuple(Date: str, Temperature: float, Rainfall: float)]
     """
-    pass
+    content_list = open(file_path).readlines()
+    final_list = []
+    for i in content_list:
+        item_list = i.split(",")
+        final_list.append((item_list[0], float(item_list[1]), float(item_list[2])))
+    return final_list
 
 def calculate_average_temperature(weather_data):
     """
-    TODO: Calculates the average temperature from the weather data.
+    Calculates the average temperature from the weather data, outputs float.
     """
-    pass
+    running_total = 0
+    for i in weather_data:
+        running_total += i[1]
+    return running_total/len(weather_data)
+
+
 
 def calculate_total_rainfall(weather_data):
     """
-    TODO: Calculates the total rainfall from the weather data.
+    Calculates the total rainfall from the weather data, outputs float.
     """
-    pass
+    running_total = 0
+    for i in weather_data:
+        running_total += i[2]
+    return running_total
 
 def find_highest_temperature(weather_data):
     """
-    TODO: Finds the highest temperature and the corresponding date from the weather data.
+    Finds the highest temperature and the corresponding date from the weather data, outputs Tuple(Date: str, Temperature: float).
     """
-    pass
+    maxi = max([i[1] for i in weather_data])
+    for i in weather_data:
+        if i[1] == maxi:
+            return (i[0], i[1])
 
 
 def find_lowest_temperature(weather_data):
     """
-    TODO: Finds the lowest temperature and the corresponding date from the weather data.
+    Finds the lowest temperature and the corresponding date from the weather data, outputs Tuple(Date: str, Temperature: float).
     """
-    pass
+    mini = min([i[1] for i in weather_data])
+    for i in weather_data:
+        if i[1] == mini:
+            return (i[0], i[1])
 
 def find_day_with_most_rainfall(weather_data):
     """
-    TODO: Finds the day with the most rainfall from the weather data.
+    Finds the day with the most rainfall from the weather dataoutputs Tuple(Date: str, Rainfall: float).
     """
-    pass
-
+    maxi = max([i[2] for i in weather_data])
+    for i in weather_data:
+        if i[2] == maxi:
+            return (i[0], i[2])
