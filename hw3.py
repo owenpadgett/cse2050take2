@@ -2,11 +2,13 @@ import random
 import time
 
 def generate_lists(size):
+    """Generates two lists of size specified, populated with unique, random integers"""
     if size == 0:
         return ([], [])
     return (random.sample(range(2*size), size), random.sample(range(2*size), size))
 
 def find_common(list1, list2):
+    """Finds the number of common entries between two lists"""
     if list1 == [] or list2 == []: #+2
         return 0                   #+1
     list1.sort()                   #+nlogn
@@ -33,14 +35,15 @@ def find_common(list1, list2):
 
 
 def find_common_efficient(list1, list2):
+    """Finds the number of common entries between two lists"""
     length = len(list1)         #+1
-    s1 = set(list1)             #+n
-    s2 = set(list2)             #+n
-    omega = s1.union(s2)        #+2n
-    return length*2-len(omega)  #+1+1+1+1
-    #### Total = 5 + 4n = O(n)
+    list1.extend(list2)         #+n
+    s = set(list1)              #+2n
+    return length*2-len(s)      #+1+1+1+1
+    #### Total = 5 + 3n = O(n)
 
 def measure_time():
+    """Provides an in-terminal runtime comparison of the find_common and find_common_efficient methods"""
     l1, l2 = generate_lists(10)
     l3, l4 = generate_lists(100)
     l5, l6 = generate_lists(1000)
@@ -75,7 +78,7 @@ def measure_time():
     lenList = [10, 100, 1000, 10000, 20000]
 
     for i in range(5):
-        print(f"List Length: {str(lenList[i])} | find_common Time (ns): {str(timeList[i]*1e9)} | find_common_efficient Time (ns): {str(timeList[i+5]*1e9)}")
+        print(f"List Length: {str(lenList[i])} | find_common Time (ns): {str(timeList[i]*1e9)} | find_common_efficient Time (ns): {str(timeList[i+5]*1e9)} | Speed-up Factor: {str(timeList[i]/timeList[i+5])}")
 
 
 
