@@ -36,10 +36,10 @@ def find_common(list1, list2):
 
 def find_common_efficient(list1, list2):
     """Finds the number of common entries between two lists"""
-    length = len(list1)         #+1
-    list1.extend(list2)         #+n
-    s = set(list1)              #+2n
-    return length*2-len(s)      #+1+1+1+1
+    length = len(list1) + len(list2) #+1
+    list1.extend(list2)              #+n
+    s = set(list1)                   #+2n
+    return length-len(s)           #+1+1+1+1
     #### Total = 5 + 3n = O(n)
 
 def measure_time():
