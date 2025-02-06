@@ -87,7 +87,7 @@ class SmartHome():
     def __add__(self, other):
         """Add a smart device to the home."""
         self.devices.append(other)
-        return self.devices
+        return self
     
     def turn_off_all(self):
         """Turn off all smart devices in the home."""
