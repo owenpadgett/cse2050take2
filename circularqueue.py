@@ -9,6 +9,9 @@ class CircularQueue:
         self._len = 0
         self._d_processes = {}
 
+    def __len__(self):
+        return self._len
+
     def __repr__(self):
         """Provides a string representation of the queue"""
         processes = []
