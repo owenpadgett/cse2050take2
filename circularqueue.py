@@ -3,11 +3,15 @@ from process import Process
 class CircularQueue:
     """A circular queue to allow us to run processes turn-by-turn"""
     
-    def __init__(self):
-        """Initializes an empty circular queue"""
+    def __init__(self, processes=None):
+        """Initializes the circular queue."""
         self._head = None
         self._len = 0
-        self._d_processes = {}
+        self._d_processes = {}  # Dictionary to store processes by pid for O(1) lookup
+        
+        if processes:
+            for process in processes:
+                self.add_process(process)
 
     def __len__(self):
         return self._len
