@@ -2,6 +2,8 @@
 # init, and repr  are implemented for you. You should implement the other     #
 # methods recursively.                                                        #
 ###############################################################################
+#update
+
 class Node:
     """Reucrsively implementes Linked List functionality"""
     def __init__(self, data, link=None):
