@@ -5,7 +5,7 @@
 #update
 
 class Node:
-    """Reucrsively implementes Linked List functionality"""
+    """Recursively implementes Linked List functionality"""
     def __init__(self, data, link=None):
         """Instantiates a new Node with given data"""
         self.data = data
