@@ -15,15 +15,29 @@ class Node:
     
     def __len__(self):
         """Recursively calculates length of sublist starting at this node"""
+        if self.link is None:
+            return 1
+        return len(self.link)+1
 
     def get_tail(self):
         """Recursively finds the data stored in the tail of this sublist"""
+        if self.link is None:
+            return self.data
+        return self.link.get_tail()
+
     
     def add_last(self, data):
         """Recursively adds to end of this sublist"""
+        if self.link is None:
+            self.link = Node(data)
+        else:
+            self.link.add_last(data)
 
     def total(self):
-        """Recusrively adds all items"""
+        """Recursively adds all items"""
+        if self.link is None:
+            return self.data
+        return self.data + self.link.total()
     
     def remove_last(self):
         """Recursively removes last item in sublist
@@ -39,6 +53,18 @@ class Node:
                 * tail_data: Any
                     The data that was found in the tail node
         """
+        if self.link is None:
+            return (None, self.data)
+        else:
+            new_link, tail_data = self.link.remove_last()
+            self.link = new_link
+            return (self, tail_data)
 
     def reverse(self, prev):
         """Recursively reverse list"""
+        if self.link is None:
+            self.link = prev
+            return self
+        next_node = self.link
+        self.link = prev
+        return next_node.reverse(self)
