@@ -2,9 +2,10 @@
 import random
 
 ##### Generate list of numbers #####
-n = 2000 # Max is 2000 due to memory constraints on the gradescope
+n = 1500 # Max is 2000 due to memory constraints on the gradescope
          # containers that run your submissions
-L = [i*2 for i in range(n)]
+L = [i for i in range(n)]
+L.append(5)
 
 ##### Create file to write to #####
 f = open(f"./numbers.txt", "w")
