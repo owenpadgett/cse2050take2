@@ -9,11 +9,11 @@
 # Run this file locally to verify you spelled everything correctly.           #
 ###############################################################################
 
-answers = {'alg_a': 'insertion',
+answers = {'alg_a': 'selection',
            'alg_b': 'quick',
            'alg_c': 'bubble',
            'alg_d': 'merge',
-           'alg_e': 'selection'
+           'alg_e': 'insertion'
           }
 
 # Do not edit anything below this line. This checks that you spelled all answers
