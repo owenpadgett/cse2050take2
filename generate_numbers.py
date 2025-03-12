@@ -4,7 +4,7 @@ import random
 ##### Generate list of numbers #####
 n = 2000 # Max is 2000 due to memory constraints on the gradescope
          # containers that run your submissions
-L = [random.randint(0, n) for i in range(n)]
+L = [i*2 for i in range(n)]
 
 ##### Create file to write to #####
 f = open(f"./numbers.txt", "w")
